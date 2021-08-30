@@ -15,6 +15,10 @@
   padding: 20px;
   color: var(--text-color-secondary);
   font-weight: 500;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .heading_name {
@@ -48,4 +52,5 @@
 
 .population {
   flex: 1;
+  text-align: center;
 }
