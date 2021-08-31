@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import {
   KeyboardArrowDownRounded,
   KeyboardArrowUpRounded,
@@ -62,13 +63,15 @@ export const CountryTable = ({ countries }) => {
   return (
     <div>
       <div className={styles.heading}>
+        <div className={styles.heading_flag}></div>
+
         <button
           className={styles.heading_name}
           onClick={() => setValueAndSwitch("name")}
         >
           <div>Name</div>
 
-          <SortArrow direction={direction} />
+          {value === "name" && <SortArrow direction={direction} />}
         </button>
 
         <button
@@ -77,7 +80,35 @@ export const CountryTable = ({ countries }) => {
         >
           <div>Population</div>
 
-          <SortArrow direction={direction} />
+          {value === "population" && <SortArrow direction={direction} />}
+        </button>
+
+        <button
+          className={styles.heading_area}
+          onClick={() => setValueAndSwitch("area")}
+        >
+          <div>
+            Area (km
+            <sup
+              style={{
+                fontSize: "0.5rem",
+              }}
+            >
+              2
+            </sup>
+            )
+          </div>
+
+          {value === "area" && <SortArrow direction={direction} />}
+        </button>
+
+        <button
+          className={styles.heading_gini}
+          onClick={() => setValueAndSwitch("area")}
+        >
+          <div>Gini</div>
+
+          {value === "gini" && <SortArrow direction={direction} />}
         </button>
       </div>
 
@@ -88,8 +119,21 @@ export const CountryTable = ({ countries }) => {
           passHref
         >
           <div className={styles.row}>
+            <div className={styles.flag}>
+              <img src={country.flag} alt={country.name} />
+            </div>
+
             <div className={styles.name}>{country.name}</div>
-            <div className={styles.population}>{country.population}</div>
+
+            <div className={styles.population}>
+              {parseInt(country.population).toLocaleString() ?? 0}
+            </div>
+
+            <div className={styles.area}>
+              {parseInt(country.area).toLocaleString() ?? 0}
+            </div>
+
+            <div className={styles.gini}>{country.gini ?? 0}%</div>
           </div>
         </Link>
       ))}
