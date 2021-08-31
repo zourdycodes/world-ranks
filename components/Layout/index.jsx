@@ -42,6 +42,7 @@ export const Layout = ({ children, title = "World Ranks" }) => {
         </Link>
       </header>
 
+      {/* Content */}
       <main className={styles.main}>{children}</main>
 
       <footer className={styles.footer}>Muhammad Zourdy &copy; 2021</footer>
