@@ -27,3 +27,16 @@
   margin-top: 32px;
   padding: 20px;
 }
+
+.themeSwitcher {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+
+  color: var(--text-color-secondary);
+  margin-left: 4px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
